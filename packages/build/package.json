@@ -1,7 +1,7 @@
 {
   "name": "@gask/build",
   "type": "module",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "packageManager": "pnpm@10.25.0",
   "readme": "https://github.com/leoboyerbx/gask/tree/main/packages/build#readme",
   "description": "Builder for Google Apps Script projects",
