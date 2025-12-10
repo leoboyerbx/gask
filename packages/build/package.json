@@ -5,7 +5,7 @@
   "packageManager": "pnpm@10.25.0",
   "description": "Builder for Google Apps Script projects",
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "keywords": [],
   "exports": {
     ".": {

@@ -5,7 +5,7 @@
   "packageManager": "pnpm@10.25.0",
   "description": "The modern Google Apps Scripts kit",
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "keywords": [],
   "main": "index.js",
   "scripts": {
