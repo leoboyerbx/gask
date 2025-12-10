@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.1.2",
   "packageManager": "pnpm@10.25.0",
-  "description": "Builder for apps scripts projects",
+  "description": "Builder for Google Apps Script projects",
   "author": "",
   "license": "ISC",
   "keywords": [],
