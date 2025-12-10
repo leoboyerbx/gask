@@ -1,7 +1,7 @@
 {
   "name": "@gask/builder",
   "type": "module",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "packageManager": "pnpm@10.25.0",
   "description": "Builder for apps scripts projects",
   "author": "",
