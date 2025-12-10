@@ -1,6 +1,6 @@
 {
   "name": "gask",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "private": true,
   "packageManager": "pnpm@10.25.0",
   "description": "The modern Google Apps Scripts kit",
