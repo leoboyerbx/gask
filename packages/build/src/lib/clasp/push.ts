@@ -7,6 +7,9 @@ export async function claspPushIfNeeded(config: GaskBuildConfig, args: BuildArgs
     if (args.push === undefined) {
         return
     }
+    if (!config.claspProfiles || Object.keys(config.claspProfiles).length === 0) {
+        throw new Error('No Clasp profiles defined in Gask Build config. At least one profile is required to push.')
+    }
     let [profileName, profile] = Object.entries(config.claspProfiles || {})[0]!
     if (args.push) {
         profile = config.claspProfiles[args.push]

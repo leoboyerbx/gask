@@ -7,10 +7,16 @@ import { loadConfig } from 'c12'
 export async function loadGaskBuildConfig() {
     const { config, configFile } = await loadConfig<GaskBuildConfig>({
         name: 'gask',
-        configFileRequired: true,
         dotenv: true,
+        defaultConfig: {
+            claspProfiles: {},
+            entryFile: 'src/index.ts',
+            outDir: 'dist',
+            manifestPath: 'src/appsscript.json',
+            watchPaths: [],
+        },
     })
-    if (!config.watchPaths) {
+    if (config.watchPaths.length === 0) {
         config.watchPaths = [dirname(config.entryFile)]
     }
     return { config: resolveConfigPaths(config), configFile }

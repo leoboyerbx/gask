@@ -4,7 +4,8 @@ export const buildArgs = {
     push: {
         type: 'string',
         alias: 'p',
-        description: 'If present, will push to the specified Clasp profile after building',
+        valueHint: 'profile',
+        description: 'If present, will push to the specified Clasp profile after building.',
     },
 } satisfies ArgsDef
 

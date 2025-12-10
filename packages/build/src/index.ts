@@ -5,7 +5,7 @@ export interface ClaspProfile {
 export interface GaskBuildConfig {
     /**
      * Entry file path (relative to project root)
-     * @example 'src/index.ts'
+     * @default 'src/index.ts'
      */
     entryFile: string
     /**
@@ -13,26 +13,26 @@ export interface GaskBuildConfig {
      * @default Entry file directory
      * @example ['src/utils', 'src/lib']
      */
-    watchPaths?: string[]
+    watchPaths: string[]
     /**
      * Output directory path (relative to project root)
-     * @example 'dist'
+     * @default 'dist'
      */
     outDir: string
     /**
      * Path to the manifest file (relative to project root)
-     * @example 'src/appsscript.json'
+     * @default 'src/appsscript.json'
      */
     manifestPath: string
     /**
-     * Clasp profiles configuration. At least one profile is required.
+     * Clasp profiles configuration.
      * @example
      * {
      *   "dev": { "scriptId": "your-dev-script-id" },
      *   "prod": { "scriptId": "your-prod-script-id" }
      * }
      */
-    claspProfiles: Record<string, ClaspProfile>
+    claspProfiles?: Record<string, ClaspProfile>
     /**
      * Prefix for env variables. If set, all **build-time** env variables starting with this prefix will be statically injected in the build.
      * To use the env vars in the code, use env.YOUR_VAR_NAME (without the prefix). Ex: GAS_API_KEY will become env.API_KEY.
@@ -53,9 +53,6 @@ export interface GaskBuildConfig {
     repoUrl?: string
 }
 
-export function defineConfig(config: GaskBuildConfig): GaskBuildConfig {
-    if (Object.keys(config.claspProfiles).length === 0) {
-        throw new Error('At least one Clasp profile must be defined in claspProfiles.')
-    }
+export function defineConfig(config: Partial<GaskBuildConfig>) {
     return config
 }
