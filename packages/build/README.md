@@ -126,14 +126,14 @@ The defineConfig helper accepts a partial GaskBuildConfig:
 
 | Option | Type | Default | Description |
 | :---- | :---- | :---- | :---- |
-| entryFile | string | 'src/index.ts' | Entry file path (relative to root). |
-| outDir | string | 'dist' | Output directory path. |
-| manifestPath | string | 'src/appsscript.json' | Path to the GAS manifest file. |
-| watchPaths | string[] | [entryFile's dir] | Additional paths to watch in dev mode. |
-| repoUrl | string | undefined | Optional repo URL added as a comment in the build output. |
-| claspProfiles | Record<string, { scriptId: string }> | undefined | Dictionary of deployment targets (dev, prod...). |
-| envPrefix | string | undefined | Prefix for env variables injection. |
-| envDeclarationPath | string | undefined | Path to output the generated TypeScript declaration file. |
+| **entryFile** | `string` | `'src/index.ts'` | Entry file path (relative to root). |
+| **outDir** | `string` | `'dist'` | Output directory path. |
+| **manifestPath** | `string` | `'src/appsscript.json'` | Path to the GAS manifest file. |
+| **watchPaths** | `string[]` | `[entryFile's dir]` | Additional paths to watch in dev mode. |
+| **repoUrl** | `string` | `undefined` | Optional repo URL added as a comment in the build output. |
+| **claspProfiles** | `Record<string, { scriptId: string }>` | `undefined` | Dictionary of deployment targets (dev, prod...). |
+| **envPrefix** | `string` | `undefined` | Prefix for env variables injection. |
+| **envDeclarationPath** | `string` | `undefined` | Path to output the generated TypeScript declaration file. |
 
 ## **📟 CLI Arguments**
 
