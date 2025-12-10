@@ -11,7 +11,7 @@
   "scripts": {
     "release": "bumpp -r",
     "build:packages": "pnpm -r run build",
-    "publish:packages": "pnpm -r publish --access public"
+    "publish:packages": "pnpm -r publish --no-git-checks --access public"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^6.6.1",
