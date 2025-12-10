@@ -1,8 +1,8 @@
-# **⛽️ @gask/builder**
+# **⛽️ @gask/build**
 
 A blazing fast TypeScript bundler and deployer for Google Apps Script.
 
-**@gask/builder** replaces the complex setup of Webpack/Rollup + Clasp with a single, opinionated, and robust CLI tool.
+**@gask/build** replaces the complex setup of Webpack/Rollup + Clasp with a single, opinionated, and robust CLI tool.
 
 ## **✨ Features**
 
@@ -16,8 +16,8 @@ A blazing fast TypeScript bundler and deployer for Google Apps Script.
 ## **📦 Installation**
 
 ```bash
-# Install the builder
-npm install -D @gask/builder
+# Install the build package
+npm install -D @gask/build
 
 # Install GAS types (highly recommended)
 npm install -D @types/google-apps-script
@@ -38,7 +38,7 @@ To enable deployment capabilities and advanced features, create a `gask.config.t
 
 #### **1. Configure Profiles**
 ```typescript
-import { defineConfig } from '@gask/builder'
+import { defineConfig } from '@gask/build'
 
 export default defineConfig({
     entryFile: 'src/main.ts',
