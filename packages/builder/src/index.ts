@@ -2,7 +2,7 @@ export interface ClaspProfile {
     scriptId: string
 }
 
-export interface BASPConfig {
+export interface GaskBuildConfig {
     /**
      * Entry file path (relative to project root)
      * @example 'src/index.ts'
@@ -38,7 +38,7 @@ export interface BASPConfig {
      * To use the env vars in the code, use env.YOUR_VAR_NAME (without the prefix). Ex: GAS_API_KEY will become env.API_KEY.
      * See envDeclarationPath to generate the corresponding TypeScript declarations.
      *
-     * When building, Basp loads env variables from a `.env` file at the project root using `dotenv`.
+     * When building, Gask build loads env variables from a `.env` file at the project root using `dotenv`.
      */
     envPrefix?: string
     /**
@@ -53,7 +53,7 @@ export interface BASPConfig {
     repoUrl?: string
 }
 
-export function defineBaspConfig(config: BASPConfig): BASPConfig {
+export function defineConfig(config: GaskBuildConfig): GaskBuildConfig {
     if (Object.keys(config.claspProfiles).length === 0) {
         throw new Error('At least one Clasp profile must be defined in claspProfiles.')
     }

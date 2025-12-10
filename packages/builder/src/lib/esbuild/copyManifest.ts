@@ -4,7 +4,7 @@ import { getEsbuildInOut } from './_utils'
 
 export function esbuildCopyManifest(sourceManifestPath: string) {
     return {
-        name: 'basp-copy-manifest',
+        name: 'gask-copy-manifest',
         setup(build) {
             const { outDir } = getEsbuildInOut(build)
             build.onEnd(async () => {

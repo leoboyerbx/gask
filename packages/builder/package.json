@@ -1,5 +1,5 @@
 {
-  "name": "@gask/builder",
+  "name": "@gask/build",
   "type": "module",
   "version": "0.1.2",
   "packageManager": "pnpm@10.25.0",
@@ -18,7 +18,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "bin": {
-    "basp": "./dist/cli.mjs"
+    "gask": "./dist/cli.mjs"
   },
   "files": [
     "dist"

@@ -1,12 +1,12 @@
-import type { BASPConfig } from '..'
+import type { GaskBuildConfig } from '..'
 import { dirname, resolve } from 'node:path'
 
 import process from 'node:process'
 import { loadConfig } from 'c12'
 
-export async function loadBaspConfig() {
-    const { config, configFile } = await loadConfig<BASPConfig>({
-        name: 'basp',
+export async function loadGaskBuildConfig() {
+    const { config, configFile } = await loadConfig<GaskBuildConfig>({
+        name: 'gask',
         configFileRequired: true,
         dotenv: true,
     })
@@ -16,7 +16,7 @@ export async function loadBaspConfig() {
     return { config: resolveConfigPaths(config), configFile }
 }
 
-function resolveConfigPaths(config: BASPConfig) {
+function resolveConfigPaths(config: GaskBuildConfig) {
     config.entryFile = resolve(process.cwd(), config.entryFile)
     config.outDir = resolve(process.cwd(), config.outDir)
     config.manifestPath = resolve(process.cwd(), config.manifestPath)

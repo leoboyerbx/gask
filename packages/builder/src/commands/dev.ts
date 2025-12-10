@@ -5,7 +5,7 @@ import consola from 'consola'
 import { glob } from 'tinyglobby'
 import { buildProject } from '../lib/build'
 import { claspPushIfNeeded } from '../lib/clasp/push'
-import { loadBaspConfig } from '../lib/config'
+import { loadGaskBuildConfig } from '../lib/config'
 import { buildArgs } from './_shared'
 
 export const devCommand = defineCommand({
@@ -15,7 +15,7 @@ export const devCommand = defineCommand({
     },
     args: buildArgs,
     async run({ args }) {
-        const { config, configFile } = await loadBaspConfig()
+        const { config, configFile } = await loadGaskBuildConfig()
         const envFiles = await glob(['.env', '.env.*'], {
             cwd: process.cwd(),
             absolute: true,
@@ -32,7 +32,7 @@ export const devCommand = defineCommand({
                 consola.log('Changes detected. Rebuilding...')
             }
             // Reload config to pick up any changes
-            const { config } = await loadBaspConfig()
+            const { config } = await loadGaskBuildConfig()
             await buildProject(config)
             await claspPushIfNeeded(config, args)
         }

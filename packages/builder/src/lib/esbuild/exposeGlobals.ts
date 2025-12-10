@@ -4,7 +4,7 @@ import { getEsbuildInOut } from './_utils'
 
 export function esbuildExposeGlobals() {
     return {
-        name: 'basp-expose-globals',
+        name: 'gask-expose-globals',
         setup(build) {
             const { entryFile, outFile } = getEsbuildInOut(build)
 

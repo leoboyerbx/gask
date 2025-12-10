@@ -6,9 +6,9 @@ import { devCommand } from './commands/dev'
 
 const main = defineCommand({
     meta: {
-        name: 'basp',
+        name: 'gask',
         version,
-        description: 'Builder for Apps Script Projects',
+        description: 'Gask Builder for Apps Script Projects',
     },
     subCommands: {
         build: buildCommand,

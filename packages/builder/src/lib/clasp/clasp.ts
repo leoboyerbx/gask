@@ -10,7 +10,7 @@ import { resolveCommand } from 'package-manager-detector/commands'
 import { detect } from 'package-manager-detector/detect'
 
 export async function claspPush(profile: ClaspProfile, rootDir: string) {
-    const tmpClaspPath = join(tmpdir(), `gas-builder-${randomUUID()}.json`)
+    const tmpClaspPath = join(tmpdir(), `gask-build-${randomUUID()}.json`)
 
     const claspConfig = {
         scriptId: profile.scriptId,
