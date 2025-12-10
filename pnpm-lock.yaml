@@ -11,6 +11,9 @@ importers:
       '@antfu/eslint-config':
         specifier: ^6.6.1
         version: 6.6.1(@vue/compiler-sfc@3.5.25)(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
+      '@types/node':
+        specifier: ^24.10.3
+        version: 24.10.3
       bumpp:
         specifier: ^10.3.2
         version: 10.3.2
