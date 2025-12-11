@@ -1,8 +1,10 @@
 {
   "name": "gask",
   "type": "module",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "description": "The Google Apps Script Kit. Modern tooling for GAS.",
+  "repository": "https://github.com/leoboyerbx/gask",
+  "readme": "https://github.com/leoboyerbx/gask#readme",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

@@ -1,11 +1,13 @@
 {
   "name": "gask",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "private": true,
   "packageManager": "pnpm@10.25.0",
   "description": "The modern Google Apps Scripts kit",
+  "readme": "https://github.com/leoboyerbx/gask#readme",
   "author": "",
   "license": "MIT",
+  "repository": "https://github.com/leoboyerbx/gask",
   "keywords": [],
   "main": "index.js",
   "scripts": {
