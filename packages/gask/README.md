@@ -111,7 +111,7 @@ The `defineConfig` helper accepts a partial `GaskConfig`:
 | :---- | :---- | :---- | :---- |
 | **entryFile** | `string` | `'src/index.ts'` | Entry file path (relative to root). |
 | **outDir** | `string` | `'dist'` | Output directory path. |
-| **manifestPath** | `string` | `'src/appsscript.json'` | Path to the GAS manifest file. |
+| **manifestPath** | `string` | `'[entryFile's dir]/appsscript.json'` | Path to the GAS manifest file. |
 | **watchPaths** | `string[]` | `[entryFile's dir]` | Additional paths to watch in dev mode. |
 | **repoUrl** | `string` | `undefined` | Optional repo URL added as a comment in the build output. |
 | **claspProfiles** | `Record` | `undefined` | Dictionary of deployment targets (dev, prod...). |

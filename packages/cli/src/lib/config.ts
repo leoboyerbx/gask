@@ -8,12 +8,18 @@ export async function loadGaskConfig() {
     const { config, configFile } = await loadConfig<GaskConfig>({
         name: 'gask',
         dotenv: true,
-        defaultConfig: {
-            claspProfiles: {},
-            entryFile: 'src/index.ts',
-            outDir: 'dist',
-            manifestPath: 'src/appsscript.json',
-            watchPaths: [],
+        defaultConfig({ configs }) {
+            let manifestPath = 'src/appsscript.json'
+            if (configs.main?.entryFile) {
+                manifestPath = `${dirname(configs.main.entryFile)}/appsscript.json`
+            }
+            return {
+                claspProfiles: {},
+                entryFile: 'src/index.ts',
+                outDir: 'dist',
+                manifestPath,
+                watchPaths: [],
+            }
         },
     })
     if (config.watchPaths.length === 0) {

@@ -21,7 +21,7 @@ export interface GaskConfig {
     outDir: string
     /**
      * Path to the manifest file (relative to project root)
-     * @default 'src/appsscript.json'
+     * @default "[entryFile's directory]/appsscript.json"
      */
     manifestPath: string
     /**
