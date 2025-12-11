@@ -19,17 +19,7 @@ export async function claspPush(profile: ClaspProfile, rootDir: string) {
 
     try {
         await writeFile(tmpClaspPath, JSON.stringify(claspConfig, null, 2))
-
-        const pm = await detect()
-
-        const args = ['clasp', 'push', '-f', '--project', tmpClaspPath]
-        const cmd = resolveCommand(pm?.agent || 'npm', 'execute', args)
-        if (!cmd)
-            throw new Error('Could not detect package manager')
-
-        await nanoSpawn(cmd.command, cmd.args, {
-            stdio: 'inherit',
-        })
+        await runClasp(['push', '--project', tmpClaspPath])
     }
     catch (err) {
         consola.error('Error while pushing :', err)
@@ -43,4 +33,15 @@ export async function claspPush(profile: ClaspProfile, rootDir: string) {
             // Ignore cleanup errors
         }
     }
+}
+
+export async function runClasp(args: string[]) {
+    const pm = await detect()
+    const cmd = resolveCommand(pm?.agent || 'npm', 'execute', ['clasp', ...args])
+    if (!cmd)
+        throw new Error('Could not detect package manager')
+
+    return await nanoSpawn(cmd.command, cmd.args, {
+        stdio: 'inherit',
+    })
 }
