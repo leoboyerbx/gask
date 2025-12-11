@@ -1,7 +1,7 @@
 import { defineCommand } from 'citty'
 import { buildProject } from '../lib/build'
 import { claspPushIfNeeded } from '../lib/clasp/push'
-import { loadGaskBuildConfig } from '../lib/config'
+import { loadGaskConfig } from '../lib/config'
 import { buildArgs } from './_shared'
 
 export const buildCommand = defineCommand({
@@ -11,7 +11,7 @@ export const buildCommand = defineCommand({
     },
     args: buildArgs,
     async run({ args }) {
-        const { config } = await loadGaskBuildConfig()
+        const { config } = await loadGaskConfig()
         await buildProject(config)
         await claspPushIfNeeded(config, args)
     },

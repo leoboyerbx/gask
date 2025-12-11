@@ -1,11 +1,11 @@
-import type { GaskBuildConfig } from '..'
+import type { GaskConfig } from '..'
 import { dirname, resolve } from 'node:path'
 
 import process from 'node:process'
 import { loadConfig } from 'c12'
 
-export async function loadGaskBuildConfig() {
-    const { config, configFile } = await loadConfig<GaskBuildConfig>({
+export async function loadGaskConfig() {
+    const { config, configFile } = await loadConfig<GaskConfig>({
         name: 'gask',
         dotenv: true,
         defaultConfig: {
@@ -22,7 +22,7 @@ export async function loadGaskBuildConfig() {
     return { config: resolveConfigPaths(config), configFile }
 }
 
-function resolveConfigPaths(config: GaskBuildConfig) {
+function resolveConfigPaths(config: GaskConfig) {
     config.entryFile = resolve(process.cwd(), config.entryFile)
     config.outDir = resolve(process.cwd(), config.outDir)
     config.manifestPath = resolve(process.cwd(), config.manifestPath)

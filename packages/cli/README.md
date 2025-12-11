@@ -1,8 +1,8 @@
-# **⛽️ @gask/build**
+# **⛽️ @gask/cli**
 
-A blazing fast TypeScript bundler and deployer for Google Apps Script.
+A blazing fast TypeScript CLI for Google Apps Script.
 
-**@gask/build** replaces the complex setup of Webpack/Rollup + Clasp with a single, opinionated, and robust CLI tool.
+**@gask/cli** replaces the complex setup of Webpack/Rollup + Clasp with a single, opinionated, and robust CLI tool.
 
 ## **✨ Features**
 
@@ -16,8 +16,8 @@ A blazing fast TypeScript bundler and deployer for Google Apps Script.
 ## **📦 Installation**
 
 ```bash
-# Install the build package
-npm install -D @gask/build
+# Install the cli package
+npm install -D @gask/cli
 
 # Install GAS types (highly recommended)
 npm install -D @types/google-apps-script
@@ -38,7 +38,7 @@ To enable deployment capabilities and advanced features, create a `gask.config.t
 
 #### **1. Configure Profiles**
 ```typescript
-import { defineConfig } from '@gask/build'
+import { defineConfig } from '@gask/cli'
 
 export default defineConfig({
     entryFile: 'src/main.ts',
@@ -82,7 +82,7 @@ npx gask dev --push
 
 ## **🔐 Environment Variables**
 
-Gask Build offers a secure way to inject variables at build time without exposing your entire system environment.
+Gask offers a secure way to inject variables at build time without exposing your entire system environment.
 
 ### **1. Setup**
 
@@ -122,7 +122,7 @@ console.log(env.API_KEY)
 
 ## **⚙️ Configuration Reference**
 
-The defineConfig helper accepts a partial GaskBuildConfig:
+The defineConfig helper accepts a partial GaskConfig:
 
 | Option | Type | Default | Description |
 | :---- | :---- | :---- | :---- |

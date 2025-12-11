@@ -8,7 +8,7 @@ Gask is a collection of high-performance tools designed to bring a modern Develo
 
 | Package | Description | Status |
 | --- | --- | --- |
-| [`@gask/build`](./packages/build) | The core CLI. Compiles TypeScript, manages .env, and handles deployment. | `beta` |
+| [`@gask/cli`](./packages/cli) | The core CLI. Compiles TypeScript, manages .env, and handles deployment. | `beta` |
 | `@gask/ui` (Coming Soon) | UI helpers to build sidebars and modals effortlessly. | 🚧 |
 | `@gask/utils` (Coming Soon) | Type-safe wrappers and local mocks for Google Services. | 🚧 |
 
@@ -27,7 +27,7 @@ This project is a monorepo managed with pnpm.
 pnpm install
 
 # Build all packages
-pnpm build
+pnpm build:packages
 ```
 
 ## 📄 License

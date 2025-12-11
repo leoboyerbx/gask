@@ -8,7 +8,7 @@ const main = defineCommand({
     meta: {
         name: 'gask',
         version,
-        description: 'Gask Builder for Apps Script Projects',
+        description: 'Gask CLI for Apps Script Projects',
     },
     subCommands: {
         build: buildCommand,

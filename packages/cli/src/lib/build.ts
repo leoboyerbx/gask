@@ -1,5 +1,5 @@
 import type { BuildOptions } from 'esbuild'
-import type { GaskBuildConfig } from '..'
+import type { GaskConfig } from '..'
 import { resolve } from 'node:path'
 
 import { consola } from 'consola'
@@ -9,7 +9,7 @@ import { esbuildCopyManifest } from '../lib/esbuild/copyManifest'
 import { esbuildExposeGlobals } from '../lib/esbuild/exposeGlobals'
 import { esbuildInjectEnv } from '../lib/esbuild/injectEnv'
 
-export async function buildProject(config: GaskBuildConfig) {
+export async function buildProject(config: GaskConfig) {
     const esbuildOptions: BuildOptions = {
         entryPoints: [config.entryFile],
         outfile: resolve(config.outDir, 'Code.js'),

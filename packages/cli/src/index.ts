@@ -2,7 +2,7 @@ export interface ClaspProfile {
     scriptId: string
 }
 
-export interface GaskBuildConfig {
+export interface GaskConfig {
     /**
      * Entry file path (relative to project root)
      * @default 'src/index.ts'
@@ -38,7 +38,7 @@ export interface GaskBuildConfig {
      * To use the env vars in the code, use env.YOUR_VAR_NAME (without the prefix). Ex: GAS_API_KEY will become env.API_KEY.
      * See envDeclarationPath to generate the corresponding TypeScript declarations.
      *
-     * When building, Gask build loads env variables from a `.env` file at the project root using `dotenv`.
+     * When building, Gask loads env variables from a `.env` file at the project root using `dotenv`.
      */
     envPrefix?: string
     /**
@@ -53,6 +53,6 @@ export interface GaskBuildConfig {
     repoUrl?: string
 }
 
-export function defineConfig(config: Partial<GaskBuildConfig>) {
+export function defineConfig(config: Partial<GaskConfig>) {
     return config
 }
