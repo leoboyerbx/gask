@@ -64,6 +64,16 @@ importers:
         specifier: ^3.6.1
         version: 3.6.1(typescript@5.9.3)
 
+  packages/gask:
+    dependencies:
+      '@gask/cli':
+        specifier: workspace:*
+        version: link:../cli
+    devDependencies:
+      unbuild:
+        specifier: ^3.6.1
+        version: 3.6.1(typescript@5.9.3)
+
 packages:
 
   '@antfu/eslint-config@6.6.1':
