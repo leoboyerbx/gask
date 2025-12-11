@@ -2,6 +2,7 @@
 import { defineCommand, runMain, showUsage } from 'citty'
 import { consola } from 'consola'
 import { version } from '../package.json'
+import { authCommand } from './commands/auth'
 import { buildCommand } from './commands/build'
 import { devCommand } from './commands/dev'
 
@@ -14,6 +15,7 @@ const main = defineCommand({
     subCommands: {
         build: buildCommand,
         dev: devCommand,
+        auth: authCommand,
     },
     args: {
         version: {
@@ -27,7 +29,9 @@ const main = defineCommand({
             consola.info(`Gask CLI v${version}`)
             return
         }
-        await showUsage(main)
+        if (args._.length === 0) {
+            await showUsage(main)
+        }
     },
 })
 
