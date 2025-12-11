@@ -1,6 +1,7 @@
 import { defineCommand } from 'citty'
 import { login } from './login'
 import { logout } from './logout'
+import { status } from './status'
 
 export const authCommand = defineCommand({
     meta: {
@@ -10,6 +11,6 @@ export const authCommand = defineCommand({
     subCommands: {
         login,
         logout,
-        // status,
+        status,
     },
 })
