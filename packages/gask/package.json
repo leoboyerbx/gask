@@ -1,0 +1,29 @@
+{
+  "name": "gask",
+  "type": "module",
+  "version": "1.0.0-beta.3",
+  "description": "The Google Apps Script Kit. Modern tooling for GAS.",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "gask": "./dist/cli.mjs"
+  },
+  "scripts": {
+    "build": "unbuild",
+    "prepublishOnly": "pnpm run build"
+  },
+  "dependencies": {
+    "@gask/cli": "workspace:*"
+  },
+  "devDependencies": {
+    "unbuild": "^3.6.1"
+  }
+}
