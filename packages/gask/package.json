@@ -21,6 +21,7 @@
   },
   "scripts": {
     "build": "unbuild",
+    "dev": "unbuild --stub",
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
