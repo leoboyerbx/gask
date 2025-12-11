@@ -1,13 +1,12 @@
 import type { ClaspProfile } from '../..'
 import { randomUUID } from 'node:crypto'
 import { rm, writeFile } from 'node:fs/promises'
+import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import process from 'node:process'
 import consola from 'consola'
 import nanoSpawn from 'nano-spawn'
-import { resolveCommand } from 'package-manager-detector/commands'
-import { detect } from 'package-manager-detector/detect'
 
 export async function claspPush(profile: ClaspProfile, rootDir: string) {
     const tmpClaspPath = join(tmpdir(), `gask-build-${randomUUID()}.json`)
@@ -36,12 +35,9 @@ export async function claspPush(profile: ClaspProfile, rootDir: string) {
 }
 
 export async function runClasp(args: string[]) {
-    const pm = await detect()
-    const cmd = resolveCommand(pm?.agent || 'npm', 'execute', ['clasp', ...args])
-    if (!cmd)
-        throw new Error('Could not detect package manager')
-
-    return await nanoSpawn(cmd.command, cmd.args, {
+    const require = createRequire(import.meta.url)
+    const claspPath = require.resolve('@google/clasp')
+    return await nanoSpawn('node', [claspPath, ...args], {
         stdio: 'inherit',
     })
 }

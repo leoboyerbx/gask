@@ -61,6 +61,8 @@ export default defineConfig({
 
 #### **2. Deploy**
 
+To be able to push your code, you need to be authenticated
+
 Push to your configured profiles using the CLI.
 ```bash
 # Push to the first profile defined (e.g., 'dev')
