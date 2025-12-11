@@ -1,22 +1,24 @@
 # ⛽️ Gask
 
-> **G**oogle **A**pps **S**cript **K**it. The modern ecosystem for GAS development.
+> **G**oogle **A**pps **S**cript **K**it.
+> The modern ecosystem for GAS development.
 
-Gask is a collection of high-performance tools designed to bring a modern Developer Experience (DX) to Google Apps Script. It bridges the gap between the GAS ecosystem and modern web standards.
+Gask is a collection of high-performance tools designed to bring a modern Developer Experience (DX) to Google Apps Script.
 
 ## 📦 Packages
 
-| Package | Description | Status |
+| Package | Description | Version |
 | --- | --- | --- |
-| [`@gask/cli`](./packages/cli) | The core CLI. Compiles TypeScript, manages .env, and handles deployment. | `beta` |
-| `@gask/ui` (Coming Soon) | UI helpers to build sidebars and modals effortlessly. | 🚧 |
-| `@gask/utils` (Coming Soon) | Type-safe wrappers and local mocks for Google Services. | 🚧 |
+| **[`gask`](./packages/gask)** | **The Main Package.** The one you want to install. Includes the CLI and re-exports. | [![npm](https://img.shields.io/npm/v/gask)](https://www.npmjs.com/package/gask) |
+| [`@gask/cli`](./packages/cli) | The core engine. Compiles TypeScript, manages .env, and handles deployment. | [![npm](https://img.shields.io/npm/v/@gask/cli)](https://www.npmjs.com/package/@gask/cli) |
+| `@gask/ui` | UI helpers to build sidebars and modals effortlessly. | 🚧 _Coming Soon_ |
+| `@gask/utils` | Type-safe wrappers and local mocks for Google Services. | 🚧 _Coming Soon_ |
 
 ## 🌟 Philosophy
 
-- TypeScript First: Everything is typed. From your configuration to your runtime code.
-- Ghost Config: We don't pollute your project root. Temporary configs (like .clasp.json) are generated on the fly and cleaned up instantly.
-- Modern Stack: Built on top of esbuild and the unjs ecosystem for blazing fast performance.
+- **TypeScript First**: Everything is typed. From your configuration to your runtime code.
+- **Ghost Config**: We don't pollute your project root. Temporary configs (like `.clasp.json`) are generated on the fly and cleaned up instantly.
+- **Modern Stack**: Built on top of `esbuild` and the unjs ecosystem for blazing fast performance.
 
 ## 🤝 Contributing
 
@@ -27,8 +29,9 @@ This project is a monorepo managed with pnpm.
 pnpm install
 
 # Build all packages
-pnpm build:packages
+pnpm build
 ```
 
 ## 📄 License
 MIT
+    
