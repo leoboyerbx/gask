@@ -11,6 +11,9 @@
   "bin": {
     "create-gask": "./dist/index.mjs"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "unbuild",
     "dev": "unbuild --stub",

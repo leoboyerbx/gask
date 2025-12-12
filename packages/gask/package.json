@@ -19,6 +19,9 @@
   "bin": {
     "gask": "./dist/cli.mjs"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "unbuild",
     "dev": "unbuild --stub",
