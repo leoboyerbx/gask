@@ -1,7 +1,6 @@
 import process from 'node:process'
-import { outro } from '@clack/prompts'
+import { log, outro } from '@clack/prompts'
 import { defineCommand } from 'citty'
-import consola from 'consola'
 import { buildProject } from '../lib/build'
 import { claspPushIfNeeded } from '../lib/clasp/push'
 import { loadGaskConfig } from '../lib/config'
@@ -23,7 +22,8 @@ export const buildCommand = defineCommand({
         }
         catch (e: any) {
             const errorMessage = e.errors?.[0].text || e.message || 'An unknown error occurred during the build process.'
-            consola.error(errorMessage)
+            log.error(errorMessage)
+            outro('Build command failed.')
             process.exit(1)
         }
         outro('Build command completed successfully.')

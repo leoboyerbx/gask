@@ -4,24 +4,16 @@ import { rm, writeFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import process from 'node:process'
-import consola from 'consola'
 import nanoSpawn from 'nano-spawn'
 
 export async function claspPush(profile: ClaspProfile, rootDir: string) {
-    try {
-        await runClasp(['push'], {
-            claspConfig: {
-                scriptId: profile.scriptId,
-                rootDir,
-            },
-            interactive: true,
-        })
-    }
-    catch (err) {
-        consola.error('Error while pushing :', err)
-        process.exit(1)
-    }
+    await runClasp(['push'], {
+        claspConfig: {
+            scriptId: profile.scriptId,
+            rootDir,
+        },
+        interactive: true,
+    })
 }
 
 export async function runClasp(args: string[], options: {
