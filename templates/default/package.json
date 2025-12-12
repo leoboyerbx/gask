@@ -9,6 +9,7 @@
   "scripts": {
     "build": "gask build",
     "dev": "gask dev --push",
+    "watch": "gask dev",
     "deploy:dev": "gask build --push dev",
     "deploy": "gask build --push prod",
     "gask": "gask",

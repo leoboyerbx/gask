@@ -2,6 +2,7 @@ import { resolve } from 'node:path'
 import process from 'node:process'
 import { confirm, group, log, outro, select, text } from '@clack/prompts'
 import { defineCommand } from 'citty'
+import { consola } from 'consola'
 import { commandIntro } from '../../lib/console/intro'
 import { exitWithError, handleCancel } from '../_utils'
 import { applyTemplateCustomizations } from './customize'
@@ -91,7 +92,8 @@ export const initCommand = defineCommand({
         try {
             await downloadGaskTemplate(template, targetDir)
             await applyTemplateCustomizations(targetDir, { projectName, ...customizations })
-            outro(`🎉 Your Gask project is ready!\nNext steps:\n - cd ${projectName}\n - ${customizations.packageManager} run dev`)
+            outro(`🎉 Your Gask project is ready!`)
+            consola.box(`Next steps:\n - cd ${projectName}\n - ${customizations.packageManager} run ${customizations.scriptId ? 'dev' : 'watch'}`)
         }
         catch (error) {
             exitWithError(`Failed to setup template: ${(error as Error).message}`)

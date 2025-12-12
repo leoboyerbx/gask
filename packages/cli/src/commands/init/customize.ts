@@ -1,7 +1,6 @@
 import { copyFile, readFile, unlink, writeFile } from 'node:fs/promises'
 import { userInfo } from 'node:os'
 import { resolve } from 'node:path'
-import { run } from 'node:test'
 import { spinner } from '@clack/prompts'
 import nanoSpawn from 'nano-spawn'
 import { detect, resolveCommand } from 'package-manager-detector'
@@ -16,21 +15,24 @@ interface Options {
 }
 
 export async function applyTemplateCustomizations(targetDir: string, options: Options) {
-    const s = spinner()
+    const s = spinner({ indicator: 'dots' })
     s.start(`Installing dependencies with ${options.packageManager}...`)
     await customizePackageJson(targetDir, options)
     await installDependencies(targetDir, options.packageManager)
     s.stop('Dependencies installed successfully!')
-    s.message('Applying project customizations...')
+    s.start('Applying project customizations...')
     await generateConfigFile(targetDir, options)
     await updateGitignore(targetDir)
     await createEnv(targetDir)
-    await initialBuild(targetDir)
+    if (!options.scriptId) {
+        await initialBuild(targetDir)
+    }
     s.stop('Customizations applied successfully!')
     if (options.scriptId) {
         s.start('Pulling Apps Script manifest...')
         try {
             await pullManifest(targetDir)
+            await initialBuild(targetDir)
             s.stop('Apps Script manifest pulled successfully!')
         }
         // eslint-disable-next-line unused-imports/no-unused-vars

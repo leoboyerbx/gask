@@ -4,7 +4,7 @@ import { spinner } from '@clack/prompts'
 import { downloadTemplate } from 'giget'
 
 export async function downloadGaskTemplate(template: Template, targetDir: string) {
-    const s = spinner()
+    const s = spinner({ indicator: 'dots' })
     s.start('Downloading template...')
     await downloadTemplate(`github:leoboyerbx/gask/templates/${template.path}`, {
         dir: targetDir,
