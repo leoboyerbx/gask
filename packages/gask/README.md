@@ -16,7 +16,17 @@
 * 👻 **Ghost Clasp** - Handles clasp config under-the-hood. No more pollution in your root folder.
 * 🚀 **Zero Config** - Works out of the box for simple builds.
 
-## 📦 Installation
+## 🚀 Getting Started
+
+### 🌱 Create a new Gask project
+
+You can use the `create-gask` package to scaffold a new Gask project quickly:
+```bash
+npm create gask my-gask-project
+```
+Then follow the prompts to get started. For more info see [create-gask](https://www.npmjs.com/package/create-gask).
+
+### 🔌 Install in an existing project
 
 ```bash
 # Install Gask
@@ -26,7 +36,7 @@ npm install -D gask
 npm install -D @types/google-apps-script
 ```
 
-## 🚀 Usage
+## 🛠️ Usage
 
 ### Zero Config (Local Build)
 

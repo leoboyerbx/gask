@@ -11,7 +11,7 @@ Quickly create a new Gask project. Features:
 - 🚨 Optional ESLint
 
 
-# Usage
+## 🛠️ Usage
 
 ```bash
 npm create gask
