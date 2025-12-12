@@ -19,6 +19,6 @@
     "@antfu/eslint-config": "^6.6.1",
     "@types/google-apps-script": "^2.0.8",
     "eslint": "^9.39.1",
-    "gask": "^1.0.0"
+    "gask": "workspace:*"
   }
 }
