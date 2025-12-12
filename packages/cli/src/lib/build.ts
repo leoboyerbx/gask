@@ -18,7 +18,7 @@ export async function buildProject(config: GaskConfig) {
         plugins: [
             esbuildInjectEnv({ prefix: config.envPrefix, declarationPath: config.envDeclarationPath }),
             esbuildExposeGlobals(),
-            esbuildCopyManifest(config.manifestPath),
+            esbuildCopyManifest(config.manifestPath, !!config.claspProfiles), // Throw if missing only if claspProfiles is used
         ],
         banner: {
             js: `// DO NOT EDIT THIS CODE DIRECTLY. THIS IS AN AUTO-GENERATED FILE.

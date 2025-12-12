@@ -14,7 +14,6 @@ export async function loadGaskConfig() {
                 manifestPath = `${dirname(configs.main.entryFile)}/appsscript.json`
             }
             return {
-                claspProfiles: {},
                 entryFile: 'src/index.ts',
                 outDir: 'dist',
                 manifestPath,
