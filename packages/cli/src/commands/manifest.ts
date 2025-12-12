@@ -1,3 +1,4 @@
+import { access } from 'node:fs/promises'
 import { cancel, confirm, isCancel, log, outro, spinner } from '@clack/prompts'
 import { defineCommand } from 'citty'
 import { pullManifest } from '../lib/clasp/pull'
@@ -29,14 +30,15 @@ export const manifestCommand = defineCommand({
             },
             async run({ args }) {
                 commandIntro('Pull Manifest')
-                if (!args.yes) {
-                    const shouldContinue = await confirm({ message: 'This will overwrite the local manifest file with the one from your Apps Script Project. Continue?' })
+                const { config } = await loadGaskConfig()
+                const existingManifest = await access(config.manifestPath).then(() => true).catch(() => false)
+                if (existingManifest && !args.yes) {
+                    const shouldContinue = await confirm({ message: 'You already have a local manifest file. Overwrite it with the one from your Apps Script Project?' })
                     if (!shouldContinue || isCancel(shouldContinue)) {
                         cancel('Pull cancelled.')
                         return
                     }
                 }
-                const { config } = await loadGaskConfig()
                 if (!config.claspProfiles || Object.keys(config.claspProfiles).length === 0) {
                     throw new Error('No clasp profiles found in configuration.')
                 }
