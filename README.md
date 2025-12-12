@@ -9,7 +9,7 @@ Gask is a collection of high-performance tools designed to bring a modern Develo
 
 | Package | Description | Version |
 | --- | --- | --- |
-| **[`gask`](./packages/gask)** | **The Main Package.** The one you want to install. Includes the CLI and re-exports. | [![npm](https://img.shields.io/npm/v/gask)](https://www.npmjs.com/package/gask) |
+| **[`gask`](./packages/gask)** | **The Main Package.** The one you want to install. Includes the CLI useful exports. | [![npm](https://img.shields.io/npm/v/gask)](https://www.npmjs.com/package/gask) |
 | [`@gask/cli`](./packages/cli) | The core engine. Compiles TypeScript, manages .env, and handles deployment. | [![npm](https://img.shields.io/npm/v/@gask/cli)](https://www.npmjs.com/package/@gask/cli) |
 | `@gask/ui` | UI helpers to build sidebars and modals effortlessly. | 🚧 _Coming Soon_ |
 | `@gask/utils` | Type-safe wrappers and local mocks for Google Services. | 🚧 _Coming Soon_ |
