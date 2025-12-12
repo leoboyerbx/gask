@@ -20,6 +20,9 @@ importers:
       eslint:
         specifier: ^9.39.1
         version: 9.39.1(jiti@2.6.1)
+      jiti:
+        specifier: ^2.6.1
+        version: 2.6.1
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -50,6 +53,9 @@ importers:
       esbuild:
         specifier: ^0.27.1
         version: 0.27.1
+      giget:
+        specifier: ^2.0.0
+        version: 2.0.0
       nano-spawn:
         specifier: ^2.0.0
         version: 2.0.0
@@ -72,9 +78,21 @@ importers:
 
   packages/create-gask:
     devDependencies:
+      '@clack/prompts':
+        specifier: ^0.11.0
+        version: 0.11.0
+      '@gask/cli':
+        specifier: workspace:^
+        version: link:../cli
       citty:
         specifier: ^0.1.6
         version: 0.1.6
+      consola:
+        specifier: ^3.4.2
+        version: 3.4.2
+      giget:
+        specifier: ^2.0.0
+        version: 2.0.0
       unbuild:
         specifier: ^3.6.1
         version: 3.6.1(typescript@5.9.3)

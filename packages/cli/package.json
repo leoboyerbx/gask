@@ -44,6 +44,7 @@
     "citty": "^0.1.6",
     "consola": "^3.4.2",
     "esbuild": "^0.27.1",
+    "giget": "^2.0.0",
     "nano-spawn": "^2.0.0",
     "ofetch": "^1.5.1",
     "tinyglobby": "^0.2.15"
