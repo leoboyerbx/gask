@@ -70,7 +70,20 @@ Manage your Google session directly via Gask:
 npx gask auth login
 ```
 
-#### 3. Deploy
+#### 3. Pull manifest
+
+To start working, it's recommened tu get the existing manifest from your GAS project:
+
+```bash
+npx gask manifest pull
+# Or for a specific profile
+npx gask manifest pull --profile=prod
+```
+
+> [!NOTE]
+> This will create an `appsscript.json` file where your manifest is expected (default: `appsscript.json` next to your entry file).
+
+#### 4. Deploy
 Push to your configured profiles using the CLI.
 
 ```bash
