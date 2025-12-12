@@ -1,6 +1,6 @@
 import type { GaskConfig } from '../..'
 import type { BuildArgs } from '../../commands/_shared'
-import consola from 'consola'
+import { log } from '@clack/prompts'
 import { resolveClaspProfile } from '../config'
 import { claspPush } from './clasp'
 
@@ -11,7 +11,7 @@ export async function claspPushIfNeeded(config: GaskConfig, args: BuildArgs) {
 
     const { profileName, profile } = resolveClaspProfile(config, args.push)
 
-    consola.start(`Pushing to Clasp profile "${profileName}"...`)
+    log.step(`Pushing to Clasp profile "${profileName}"...`)
     await claspPush(profile, config.outDir)
-    consola.success('Push completed successfully.')
+    log.success('Push completed successfully.')
 }

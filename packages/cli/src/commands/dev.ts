@@ -1,11 +1,12 @@
 import process from 'node:process'
+import { log } from '@clack/prompts'
 import chokidar from 'chokidar'
 import { defineCommand } from 'citty'
-import consola from 'consola'
 import { glob } from 'tinyglobby'
 import { buildProject } from '../lib/build'
 import { claspPushIfNeeded } from '../lib/clasp/push'
 import { loadGaskConfig } from '../lib/config'
+import { commandIntro } from '../lib/console/intro'
 import { buildArgs } from './_shared'
 
 export const devCommand = defineCommand({
@@ -15,6 +16,7 @@ export const devCommand = defineCommand({
     },
     args: buildArgs,
     async run({ args }) {
+        commandIntro('Development mode')
         const { config, configFile } = await loadGaskConfig()
         const envFiles = await glob(['.env', '.env.*'], {
             cwd: process.cwd(),
@@ -29,7 +31,7 @@ export const devCommand = defineCommand({
 
         async function rebuild(initial: boolean = false) {
             if (!initial) {
-                consola.log('Changes detected. Rebuilding...')
+                log.info('Changes detected. Rebuilding...')
             }
             // Reload config to pick up any changes
             const { config } = await loadGaskConfig()
@@ -37,7 +39,7 @@ export const devCommand = defineCommand({
             await claspPushIfNeeded(config, args)
         }
         await rebuild(true)
-        consola.success('Initial build completed. Watching for changes...')
+        log.success('Initial build completed. Watching for changes...')
 
         const ignored = []
         if (config.envDeclarationPath) {

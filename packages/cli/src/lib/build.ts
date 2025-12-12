@@ -2,7 +2,7 @@ import type { BuildOptions } from 'esbuild'
 import type { GaskConfig } from '..'
 import { resolve } from 'node:path'
 
-import { consola } from 'consola'
+import { spinner } from '@clack/prompts'
 
 import { build } from 'esbuild'
 import { esbuildCopyManifest } from '../lib/esbuild/copyManifest'
@@ -25,9 +25,8 @@ export async function buildProject(config: GaskConfig) {
 // Refer to ${config.repoUrl || 'your repo'} for the source code and build instructions.`,
         },
     }
-
-    consola.start('Building project...')
+    const s = spinner()
+    s.start('Building project...')
     await build(esbuildOptions)
-
-    consola.success('Build completed successfully.')
+    s.stop('Build sucessful.')
 }

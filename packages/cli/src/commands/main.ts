@@ -1,6 +1,7 @@
+import { log } from '@clack/prompts'
 import { defineCommand, runMain, showUsage } from 'citty'
-import { consola } from 'consola'
 import { version } from '../../package.json'
+import { commandIntro } from '../lib/console/intro'
 import { authCommand } from './auth'
 import { buildCommand } from './build'
 import { devCommand } from './dev'
@@ -27,7 +28,8 @@ export const mainCommand = defineCommand({
     },
     async run({ args }) {
         if (args.version !== undefined) {
-            consola.info(`Gask CLI v${version}`)
+            commandIntro('CLI')
+            log.info(`v${version}`)
             return
         }
         if (args._.length === 0) {
