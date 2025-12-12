@@ -11,7 +11,7 @@
   "keywords": [],
   "main": "index.js",
   "scripts": {
-    "release": "bumpp package.json packages/*/package.json",
+    "release": "bumpp package.json packages/*/package.json && pnpm run sync-templates-version",
     "sync-templates-version": "jiti ./scripts/syncTemplatesVersion.ts",
     "build": "pnpm -r --filter \"./packages/**\" run build",
     "publish:packages": "pnpm -r --filter \"./packages/**\" publish --no-git-checks --access public"
@@ -22,6 +22,7 @@
     "bumpp": "^10.3.2",
     "eslint": "^9.39.1",
     "jiti": "^2.6.1",
+    "nano-spawn": "^2.0.0",
     "typescript": "^5.9.3"
   }
 }

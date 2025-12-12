@@ -21,7 +21,7 @@ export async function applyTemplateCustomizations(targetDir: string, options: Op
     await customizePackageJson(targetDir, options)
     await installDependencies(targetDir, options.packageManager)
     s.stop('Dependencies installed successfully!')
-    s.start('Applying project customizations...')
+    s.message('Applying project customizations...')
     await generateConfigFile(targetDir, options)
     await updateGitignore(targetDir)
     await createEnv(targetDir)
