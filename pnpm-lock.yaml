@@ -70,6 +70,15 @@ importers:
         specifier: ^3.6.1
         version: 3.6.1(typescript@5.9.3)
 
+  packages/create-gask:
+    devDependencies:
+      citty:
+        specifier: ^0.1.6
+        version: 0.1.6
+      unbuild:
+        specifier: ^3.6.1
+        version: 3.6.1(typescript@5.9.3)
+
   packages/gask:
     dependencies:
       '@gask/cli':

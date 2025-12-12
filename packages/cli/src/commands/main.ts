@@ -5,6 +5,7 @@ import { commandIntro } from '../lib/console/intro'
 import { authCommand } from './auth'
 import { buildCommand } from './build'
 import { devCommand } from './dev'
+import { initCommand } from './init'
 import { manifestCommand } from './manifest'
 
 export const mainCommand = defineCommand({
@@ -18,6 +19,7 @@ export const mainCommand = defineCommand({
         dev: devCommand,
         auth: authCommand,
         manifest: manifestCommand,
+        init: initCommand,
     },
     args: {
         version: {
