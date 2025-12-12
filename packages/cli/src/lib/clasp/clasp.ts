@@ -9,35 +9,33 @@ import consola from 'consola'
 import nanoSpawn from 'nano-spawn'
 
 export async function claspPush(profile: ClaspProfile, rootDir: string) {
-    const tmpClaspPath = join(tmpdir(), `gask-build-${randomUUID()}.json`)
-
-    const claspConfig = {
-        scriptId: profile.scriptId,
-        rootDir,
-    }
-
     try {
-        await writeFile(tmpClaspPath, JSON.stringify(claspConfig, null, 2))
-        await runClasp(['push', '--project', tmpClaspPath])
+        await runClasp(['push'], {
+            scriptId: profile.scriptId,
+            rootDir,
+        })
     }
     catch (err) {
         consola.error('Error while pushing :', err)
         process.exit(1)
     }
-    finally {
-        try {
-            await rm(tmpClaspPath, { force: true })
-        }
-        catch {
-            // Ignore cleanup errors
-        }
-    }
 }
 
-export async function runClasp(args: string[]) {
+export async function runClasp(args: string[], claspConfig?: any) {
     const require = createRequire(import.meta.url)
     const claspPath = require.resolve('@google/clasp')
-    return await nanoSpawn('node', [claspPath, ...args], {
+
+    const tmpClaspPath = join(tmpdir(), `gask-build-${randomUUID()}.json`)
+    if (claspConfig) {
+        await writeFile(tmpClaspPath, JSON.stringify(claspConfig, null, 2))
+        args.push('--project', tmpClaspPath)
+    }
+
+    const result = await nanoSpawn('node', [claspPath, ...args], {
         stdio: 'inherit',
     })
+    if (claspConfig) {
+        await rm(tmpClaspPath, { force: true }).catch(() => {})
+    }
+    return result
 }
