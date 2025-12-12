@@ -7,6 +7,6 @@ export const login = defineCommand({
         description: 'Log in to Google account. Same options as https://github.com/google/clasp?tab=readme-ov-file#login',
     },
     async run({ rawArgs }) {
-        await runClasp(['login', ...rawArgs])
+        await runClasp(['login', ...rawArgs], { interactive: true })
     },
 })

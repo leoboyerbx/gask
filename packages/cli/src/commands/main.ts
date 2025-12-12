@@ -4,6 +4,7 @@ import { version } from '../../package.json'
 import { authCommand } from './auth'
 import { buildCommand } from './build'
 import { devCommand } from './dev'
+import { manifestCommand } from './manifest'
 
 export const mainCommand = defineCommand({
     meta: {
@@ -15,6 +16,7 @@ export const mainCommand = defineCommand({
         build: buildCommand,
         dev: devCommand,
         auth: authCommand,
+        manifest: manifestCommand,
     },
     args: {
         version: {

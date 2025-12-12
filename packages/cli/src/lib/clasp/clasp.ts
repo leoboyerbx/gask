@@ -11,8 +11,11 @@ import nanoSpawn from 'nano-spawn'
 export async function claspPush(profile: ClaspProfile, rootDir: string) {
     try {
         await runClasp(['push'], {
-            scriptId: profile.scriptId,
-            rootDir,
+            claspConfig: {
+                scriptId: profile.scriptId,
+                rootDir,
+            },
+            interactive: true,
         })
     }
     catch (err) {
@@ -21,20 +24,22 @@ export async function claspPush(profile: ClaspProfile, rootDir: string) {
     }
 }
 
-export async function runClasp(args: string[], claspConfig?: any) {
+export async function runClasp(args: string[], options: {
+    claspConfig?: any
+    interactive?: boolean
+} = {}) {
     const require = createRequire(import.meta.url)
     const claspPath = require.resolve('@google/clasp')
 
     const tmpClaspPath = join(tmpdir(), `gask-build-${randomUUID()}.json`)
-    if (claspConfig) {
-        await writeFile(tmpClaspPath, JSON.stringify(claspConfig, null, 2))
+    if (options.claspConfig) {
+        await writeFile(tmpClaspPath, JSON.stringify(options.claspConfig, null, 2))
         args.push('--project', tmpClaspPath)
     }
 
-    const result = await nanoSpawn('node', [claspPath, ...args], {
-        stdio: 'inherit',
-    })
-    if (claspConfig) {
+    const spawnOptions = options.interactive ? { stdio: 'inherit' } as const : {}
+    const result = await nanoSpawn('node', [claspPath, ...args], spawnOptions)
+    if (options.claspConfig) {
         await rm(tmpClaspPath, { force: true }).catch(() => {})
     }
     return result

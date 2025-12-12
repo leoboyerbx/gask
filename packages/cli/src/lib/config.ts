@@ -39,3 +39,18 @@ function resolveConfigPaths(config: GaskConfig) {
     }
     return config
 }
+
+export function resolveClaspProfile(config: GaskConfig, requiredName?: string) {
+    if (!config.claspProfiles || Object.keys(config.claspProfiles).length === 0) {
+        throw new Error('No Clasp profiles defined in Gask config. At least one profile is required.')
+    }
+    let [profileName, profile] = Object.entries(config.claspProfiles || {})[0]!
+    if (requiredName) {
+        profile = config.claspProfiles[requiredName]
+    }
+    if (!profile) {
+        throw new Error(`Profile "${requiredName || profileName}" not found in Gask config.`)
+    }
+    profileName = requiredName || profileName
+    return { profileName, profile }
+}

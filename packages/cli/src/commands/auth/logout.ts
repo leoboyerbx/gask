@@ -7,6 +7,6 @@ export const logout = defineCommand({
         description: 'Log out from Google account.',
     },
     async run() {
-        await runClasp(['logout'])
+        await runClasp(['logout'], { interactive: true })
     },
 })
