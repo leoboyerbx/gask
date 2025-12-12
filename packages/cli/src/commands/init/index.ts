@@ -1,3 +1,4 @@
+import { log } from '@clack/prompts'
 import { defineCommand } from 'citty'
 import { commandIntro } from '../../lib/console/intro'
 
@@ -8,5 +9,6 @@ export const initCommand = defineCommand({
     },
     async run() {
         commandIntro('Initialize Gask Project')
+        log.info('This is todo')
     },
 })
