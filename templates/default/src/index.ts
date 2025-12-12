@@ -1,5 +1,5 @@
 function helloWorld() {
-    Logger.log('Hello, World!')
+    Logger.log(`Hello, ${env.DEMO}!`)
 }
 
 export default { helloWorld }

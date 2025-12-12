@@ -35,7 +35,15 @@ export const devCommand = defineCommand({
             }
             // Reload config to pick up any changes
             const { config } = await loadGaskConfig()
-            await buildProject(config)
+            try {
+                await buildProject(config)
+            }
+            catch (e: any) {
+                const errorMessage = e?.errors?.[0]?.text
+                log.error(`Build failed: ${errorMessage || e.message || e}`)
+                log.info('Waiting for changes before retry...')
+                return
+            }
             await claspPushIfNeeded(config, args)
         }
         await rebuild(true)

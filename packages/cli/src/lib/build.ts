@@ -27,6 +27,12 @@ export async function buildProject(config: GaskConfig) {
     }
     const s = spinner()
     s.start('Building project...')
-    await build(esbuildOptions)
+    try {
+        await build(esbuildOptions)
+    }
+    catch (e) {
+        s.stop('Build failed.', 1)
+        throw e
+    }
     s.stop('Build sucessful.')
 }

@@ -4,3 +4,4 @@ dist
 gask.config.ts
 
 src/appsscript.json
+env.d.ts
