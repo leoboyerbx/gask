@@ -1,13 +1,16 @@
 {
-  "name": "project-name",
+  "name": "default",
   "version": "1.0.0",
   "private": true,
-  "description": "",
+  "description": "Default Gask starter project",
   "author": "",
   "keywords": [],
   "main": "index.js",
   "scripts": {
     "build": "gask build",
+    "dev": "gask dev --push",
+    "deploy:dev": "gask build --push dev",
+    "deploy": "gask build --push prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
