@@ -1,7 +1,7 @@
 {
   "name": "gask",
   "type": "module",
-  "version": "1.0.0-beta.12",
+  "version": "1.0.0",
   "description": "The Google Apps Script Kit. Modern tooling for GAS.",
   "readme": "https://github.com/leoboyerbx/gask#readme",
   "license": "MIT",
