@@ -11,8 +11,7 @@
   "keywords": [],
   "main": "index.js",
   "scripts": {
-    "release": "bumpp package.json packages/*/package.json && pnpm run sync-templates-version",
-    "sync-templates-version": "jiti ./scripts/syncTemplatesVersion.ts",
+    "release": "bumpp package.json packages/*/package.json",
     "build": "pnpm -r --filter \"./packages/**\" run build",
     "publish:packages": "pnpm -r --filter \"./packages/**\" publish --no-git-checks --access public"
   },

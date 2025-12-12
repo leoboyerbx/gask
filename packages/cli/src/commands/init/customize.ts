@@ -5,6 +5,7 @@ import { spinner } from '@clack/prompts'
 import nanoSpawn from 'nano-spawn'
 import { detect, resolveCommand } from 'package-manager-detector'
 import stringifyObject from 'stringify-object'
+import rootPkg from '../../../package.json'
 
 interface Options {
     projectName: string
@@ -56,6 +57,7 @@ async function customizePackageJson(targetDir: string, options: Pick<Options, 'p
     })
     packageJson.name = options.projectName
     packageJson.author = userInfo().username
+    packageJson.devDependencies.gask = `^${rootPkg.version}`
     if (!options.useEslint && packageJson.devDependencies) {
         for (const dep of Object.keys(packageJson.devDependencies)) {
             if (dep.toLowerCase().includes('eslint')) {
