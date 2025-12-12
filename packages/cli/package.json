@@ -47,10 +47,13 @@
     "giget": "^2.0.0",
     "nano-spawn": "^2.0.0",
     "ofetch": "^1.5.1",
+    "package-manager-detector": "^1.6.0",
+    "stringify-object": "^6.0.0",
     "tinyglobby": "^0.2.15"
   },
   "devDependencies": {
     "@types/node": "^24.10.2",
+    "@types/stringify-object": "^4.0.5",
     "typescript": "^5.9.3",
     "unbuild": "^3.6.1"
   }

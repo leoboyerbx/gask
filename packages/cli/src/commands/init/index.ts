@@ -1,6 +1,6 @@
 import { resolve } from 'node:path'
 import process from 'node:process'
-import { confirm, group, log, select, text } from '@clack/prompts'
+import { confirm, group, log, outro, select, text } from '@clack/prompts'
 import { defineCommand } from 'citty'
 import { commandIntro } from '../../lib/console/intro'
 import { exitWithError, handleCancel } from '../_utils'
@@ -45,11 +45,10 @@ export const initCommand = defineCommand({
 
         const template = await selectTemplate(args.template)
         const targetDir = resolve(process.cwd(), projectName)
-        await downloadGaskTemplate(template, targetDir)
 
         const userAgent = process.env.npm_config_user_agent
         const currentPm = userAgent ? userAgent.split('/')[0] : 'npm'
-        const pmChoices = ['npm', 'yarn', 'pnpm', 'bun', 'deno']
+        const pmChoices = ['npm', 'pnpm', 'bun']
         const customizations = await group(
             {
                 packageManager: () => select({
@@ -90,7 +89,9 @@ export const initCommand = defineCommand({
             },
         )
         try {
+            await downloadGaskTemplate(template, targetDir)
             await applyTemplateCustomizations(targetDir, { projectName, ...customizations })
+            outro(`🎉 Your Gask project is ready!\nNext steps:\n - cd ${projectName}\n - ${customizations.packageManager} run dev`)
         }
         catch (error) {
             exitWithError(`Failed to setup template: ${(error as Error).message}`)
