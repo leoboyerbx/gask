@@ -77,6 +77,21 @@ importers:
         specifier: ^3.6.1
         version: 3.6.1(typescript@5.9.3)
 
+  templates/default:
+    devDependencies:
+      '@antfu/eslint-config':
+        specifier: ^6.6.1
+        version: 6.6.1(@vue/compiler-sfc@3.5.25)(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
+      '@types/google-apps-script':
+        specifier: ^2.0.8
+        version: 2.0.8
+      eslint:
+        specifier: ^9.39.1
+        version: 9.39.1(jiti@2.6.1)
+      gask:
+        specifier: workspace:*
+        version: link:../../packages/gask
+
 packages:
 
   '@antfu/eslint-config@6.6.1':
@@ -933,6 +948,9 @@ packages:
 
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
+
+  '@types/google-apps-script@2.0.8':
+    resolution: {integrity: sha512-mGPmzzdgBu1DlwrjOhFQ8u0se6AF/z4OpaTzOGwNKxwXZjE7J+IssfE3oL24j/S/p6aFiSTIptHZvbyqeZD8vA==}
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
@@ -3977,6 +3995,8 @@ snapshots:
       '@types/ms': 2.1.0
 
   '@types/estree@1.0.8': {}
+
+  '@types/google-apps-script@2.0.8': {}
 
   '@types/json-schema@7.0.15': {}
 
