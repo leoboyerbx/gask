@@ -10,7 +10,6 @@ Quickly create a new Gask project. Features:
 - 🔧 TypeScript support with GAS types
 - 🚨 Optional ESLint
 
-
 ## 🛠️ Usage
 
 ```bash

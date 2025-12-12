@@ -3,9 +3,9 @@
   "type": "module",
   "version": "1.0.1",
   "description": "Initalizer for Gask projects",
-  "readme": "https://github.com/leoboyerbx/gask/packages/create-gask#readme",
+  "readme": "https://github.com/leoboyerbx/gask/tree/main/packages/create-gask#readme",
   "license": "MIT",
-  "repository": "https://github.com/leoboyerbx/gask/packages/create-gask",
+  "repository": "https://github.com/leoboyerbx/gask/tree/main/packages/create-gask",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "bin": {
