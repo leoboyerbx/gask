@@ -1,7 +1,7 @@
 node_modules/
 dist
 .env
-gask.config.ts
-
-src/appsscript.json
 env.d.ts
+
+gask.config.ts
+src/appsscript.json
