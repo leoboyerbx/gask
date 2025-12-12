@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2025",
-    "types": ["google-apps-script"]
+    "types": ["google-apps-script"],
+    "include": ["src/**/*", "src/**/*.d.ts"]
   }
 }
