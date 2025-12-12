@@ -16,6 +16,7 @@
 * 👻 **Ghost Clasp** - Handles clasp config under-the-hood. No more pollution in your root folder.
 * 🚀 **Zero Config** - Works out of the box for simple builds.
 
+
 ## 🚀 Getting Started
 
 ### 🌱 Create a new Gask project
@@ -35,6 +36,7 @@ npm install -D gask
 # Install GAS types (highly recommended)
 npm install -D @types/google-apps-script
 ```
+
 
 ## 🛠️ Usage
 
@@ -73,6 +75,7 @@ export default defineConfig({
 })
 ```
 
+
 #### 2. Authenticate
 Manage your Google session directly via Gask:
 
@@ -82,7 +85,7 @@ npx gask auth login
 
 #### 3. Pull manifest
 
-To start working, it's recommened tu get the existing manifest from your GAS project:
+To start working, it's recommened to get the existing manifest from your GAS project:
 
 ```bash
 npx gask manifest pull
