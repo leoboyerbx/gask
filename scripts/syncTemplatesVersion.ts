@@ -19,3 +19,4 @@ for (const template of templates) {
     await nanoSpawn('git', ['add', packageJsonPath])
     console.log(`- Updated ${template} to version ${packageJson.devDependencies.gask}`)
 }
+await nanoSpawn('git', ['commit', '-m', `chore: sync templates to gask v${process.env.npm_package_version}`])
