@@ -1,7 +1,7 @@
 {
   "name": "create-gask",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Initalizer for Gask projects",
   "readme": "https://github.com/leoboyerbx/gask/tree/main/packages/create-gask#readme",
   "license": "MIT",
